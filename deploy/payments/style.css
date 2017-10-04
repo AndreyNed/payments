@@ -1,0 +1,156 @@
+@CHARSET "UTF-8";
+
+html, body, * {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font: normal 16px / 150% Arial, sans-serif;
+}
+
+body {
+	background-color: darkblue;
+}
+
+.wrapper {
+	max-width: 800px;
+	height: 100vh;
+	background-color: white;
+	margin: 0 auto;
+}
+
+.main_menu {
+	display: block;
+	list-style: none;
+	background-color: #f2f2f2;
+	height: 40px;
+	box-shadow: 0 2px 3px #d3d3d3;
+}
+
+.main_menu_item {
+	position: relative;
+	display: inline-block;
+	width: 150px;
+	height: 40px;
+	margin: 0 20px;
+	text-align: center;
+}
+
+.main_menu_item:hover {
+	border-bottom: 2px solid violet;
+	color: violet;
+}
+
+.main_menu_item:active {
+	width: 140px;
+	margin: 0 25px;
+	border-bottom: 1px solid darkviolet;
+}
+
+.main_menu_item > a {
+	position: absolute;
+	top: 18px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: block;
+	width: 100%;
+	padding-top: 8px;
+	text-decoration: none;
+	color: #808080;
+}
+
+.main_menu_item:hover > a {
+	color: violet;
+}
+
+.main_menu_item > a:active {
+	color: darkviolet;
+	font-size: 0.9em;
+}
+
+.main_region {
+	/* border: 1px dotted #808080; */
+	height: calc(100% - 80px);
+}
+
+.footer {
+	background-color: #f2f2f2;
+	height: 40px;
+}
+
+/* login page */
+
+.login_box {
+	width: 400px;
+	height: 400px;
+	margin: 20px auto;
+}
+
+.login_header {
+	width: 400px;
+	height: 40px;
+	text-align: center;
+	background-color: navy;
+	color: #ffffff;
+	padding-top: 0.3em;
+	border-radius: 8px 8px 0 0;
+}
+
+.login_header > span {
+	font-size: 1.2em;
+}
+
+.login_body {
+	width: 400px;
+	height: 200px;
+	border: 1px solid #d8d8d8;
+	border-radius: 0 0 8px 8px;
+}
+
+.login_item {
+	margin: 16px 0;
+}
+
+.login_item > label {
+	display: inline-block;
+	vertical-align: middle;
+	width: 140px;
+	padding-left: 20px;
+}
+
+.login_item > input[ type="text" ],
+.login_item > input[ type="password" ] {
+	display: inline-block;
+	vertical-align: middle;
+	width: 220px;
+	border: 1px solid #d3d3d3;
+	border-radius: 8px;
+	outline: none;
+	padding: 0.3em;
+}
+
+.login_item > input[ type="text" ]:focus,
+.login_item > input[ type="password" ]:focus {
+	border-color: navy;
+}
+
+.login_item > input[ type="submit" ] {
+	display: block;
+	width: 100px;
+	height: 30px;
+	border-radius: 8px;
+	border: 1px solid #d8d8d8;
+	background-color: #ffffff;
+	float: right;
+	margin-right: 30px;
+	margin-top: 16px;
+	cursor: pointer;
+	outline: none;
+}
+
+.login_item > input[ type="submit" ]:hover {
+	background-color: #f2f2f2;
+}
+
+.login_item > input[ type="submit" ]:active {
+	background-color: #d3d3d3;
+}
