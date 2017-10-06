@@ -5,38 +5,41 @@ import java.io.Serializable;
 public class User implements Serializable{
 	
 	private static final long serialVersionUID = -7588054105956066667L;
-	private String Name;
-	private String password;
-	private String role;
-	private int age;
+	
 	private int id;
+	private String name;
+	private int age;
+	private String login;
+	private String password;
+	private int role;
 	
 	public User() {
 		super();
 	}
 
-	public User(String name, String password, String role, int age) {
+	public User(String name, int age, String login, String password, int role) {
 		super();
-		Name = name;
+		this.name = name;
+		this.age = age;
+		this.login = login;
 		this.password = password;
 		this.role = role;
-		this.age = age;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
-	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
+		this.name = name;
 	}
 
 	public int getAge() {
@@ -47,14 +50,14 @@ public class User implements Serializable{
 		this.age = age;
 	}
 
-	public int getId() {
-		return id;
+	public String getLogin() {
+		return login;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setLogin(String login) {
+		this.login = login;
 	}
-	
+
 	public String getPassword() {
 		return password;
 	}
@@ -63,14 +66,28 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
+	public int getRole() {
+		return role;
+	}
+
+	public void setRole(int role) {
+		this.role = role;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Name == null) ? 0 : Name.hashCode());
 		result = prime * result + age;
+		result = prime * result + id;
+		result = prime * result + ((login == null) ? 0 : login.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((role == null) ? 0 : role.hashCode());
+		result = prime * result + role;
 		return result;
 	}
 
@@ -83,31 +100,34 @@ public class User implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (Name == null) {
-			if (other.Name != null)
-				return false;
-		} else if (!Name.equals(other.Name))
-			return false;
 		if (age != other.age)
+			return false;
+		if (id != other.id)
+			return false;
+		if (login == null) {
+			if (other.login != null)
+				return false;
+		} else if (!login.equals(other.login))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
 			return false;
 		if (password == null) {
 			if (other.password != null)
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
-		if (role == null) {
-			if (other.role != null)
-				return false;
-		} else if (!role.equals(other.role))
+		if (role != other.role)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "User [Name=" + Name + ", password=" + password + ", role=" + role + ", age=" + age + ", id=" + id + "]";
+		return "User [id=" + id + ", name=" + name + ", age=" + age + ", login=" + login + ", password=" + password
+				+ ", role=" + role + "]";
 	}
-
-	
 
 }

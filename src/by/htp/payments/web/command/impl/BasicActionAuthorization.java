@@ -25,9 +25,9 @@ public class BasicActionAuthorization implements BasicAction {
 		System.out.println("login: " + login + "; password: " + password);
 		BasicService service = new BasicServiceImpl();
 		UserCatalog userCatalog = service.getUserCatalog();
-		System.out.println( "User catalog: " + userCatalog );
 		if ( userCatalog != null ) {
 			List<User> users = userCatalog.getUsers();
+			System.out.println("users: " + users);
 			String url = null;
 			if ( users != null ) {
 				url = getURL( users, login, password );
@@ -42,19 +42,22 @@ public class BasicActionAuthorization implements BasicAction {
 	}
 	
 	private String getURL( List<User> users, String login, String password ) {
+		System.out.println("getURL is working...");
 		String url = null;
 		for ( int i = 0; i < users.size(); i++ ) {
 			User user = users.get( i );
-			if ( user.getName().equalsIgnoreCase( login ) &&
+			//System.out.println("user before check: " + user);
+			if ( user.getLogin().equalsIgnoreCase( login ) &&
 					user.getPassword().equals( password ) ) {
+				System.out.println("User: " + user);
 				switch ( user.getRole() ) {
-				case "admin":
+				case 1: //admin
 					url = "/WEB-INF/jsp/admin.jsp";
 					break;
-				case "user":
+				case 2: //user
 					url = "/WEB-INF/jsp/user.jsp";
 					break;
-				case "guest":
+				case 3:  //guest
 					url = "/WEB-INF/jsp/guest.jsp";
 					break;
 				default:

@@ -28,4 +28,10 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>DB_DRIVER</name>
+			<value>file:/D:/jd1/payments/libs/mysql-connector-java-6.0.6.jar</value>
+		</variable>
+	</variableList>
 </projectDescription>
