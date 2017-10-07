@@ -12,10 +12,10 @@
 		<div class="header">
 			<div class="main_menu_box">
 				<ol class="main_menu">
-					<li class="main_menu_item"><a href="MainServlet?command=login">home</a></li>
-					<li class="main_menu_item"><a href="#">system</a></li>
+					<li class="main_menu_item"><a href="MainServlet?command=home">home</a></li>
+					<li class="main_menu_item"><a href="MainServlet?command=system">system</a></li>
 					<li class="main_menu_item"><a href="#">login</a></li>
-					<li class="main_menu_item"><a href="#">about</a></li>
+					<li class="main_menu_item"><a href="MainServlet?command=about">about</a></li>
 				</ol>
 			</div>
 		</div>

@@ -20,6 +20,7 @@ public class SQLBasicDaoImpl implements BasicDao {
 	private static final String DB_PASS = "root";
 	private static final String DB_URL = "jdbc:mysql://localhost/payments?useUnicode=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	private static final String SQL_SELECT_USERS = "select * from users";
+	private static final String SQL_SELECT_ROLES = "select * from roles";
 	
 	@Override
 	public UserCatalog readUserCatalog() {
@@ -42,6 +43,7 @@ public class SQLBasicDaoImpl implements BasicDao {
 				String login = rs.getString("login");
 				String password = rs.getString("password");
 				int role = rs.getInt("role");
+				System.out.println( "name: " + name + "; role: " + role );
 				User user = new User( name, age, login, password, role );
 				users.add( user );
 			}
@@ -56,5 +58,5 @@ public class SQLBasicDaoImpl implements BasicDao {
 		
 		return catalog;
 	}
-
+	
 }
