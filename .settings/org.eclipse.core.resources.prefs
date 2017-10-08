@@ -1,4 +1,12 @@
 eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/jsp/about.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/admin.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/error.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/guest.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/login.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/registration.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/unregistered.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/user.jsp=UTF-8
 encoding//WebContent/index.jsp=UTF-8
 encoding//libs/mysql-connector-java-6.0.6.jar=UTF-8
 encoding/<project>=UTF-8

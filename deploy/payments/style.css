@@ -70,6 +70,7 @@ body {
 .main_region {
 	/* border: 1px dotted #808080; */
 	height: calc(100% - 80px);
+	padding: 1em;
 }
 
 .footer {
@@ -81,8 +82,8 @@ body {
 
 .login_box {
 	width: 400px;
-	height: 400px;
-	margin: 20px auto;
+	min-height: 400px;
+	margin: 0 auto;
 }
 
 .login_header {
@@ -101,13 +102,14 @@ body {
 
 .login_body {
 	width: 400px;
-	height: 200px;
+	min-height: 200px;
 	border: 1px solid #d8d8d8;
 	border-radius: 0 0 8px 8px;
 }
 
 .login_item {
 	margin: 16px 0;
+	overflow: hidden;
 }
 
 .login_item > label {
@@ -128,9 +130,22 @@ body {
 	padding: 0.3em;
 }
 
+.login_item > input[ type="text" ]:hover,
+.login_item > input[ type="password" ]:hover {
+	border-color: #808080;
+}
+
 .login_item > input[ type="text" ]:focus,
 .login_item > input[ type="password" ]:focus {
 	border-color: navy;
+}
+
+.login_register_link {
+	margin-left: 2em;
+	margin-top: 16px;
+	float: left;
+	text-decoration: none;
+	
 }
 
 .login_item > input[ type="submit" ] {

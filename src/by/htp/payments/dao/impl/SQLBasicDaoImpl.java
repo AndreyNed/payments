@@ -2,6 +2,7 @@ package by.htp.payments.dao.impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,6 +22,7 @@ public class SQLBasicDaoImpl implements BasicDao {
 	private static final String DB_URL = "jdbc:mysql://localhost/payments?useUnicode=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	private static final String SQL_SELECT_USERS = "select * from users";
 	private static final String SQL_SELECT_ROLES = "select * from roles";
+	private static final String SQL_ADD_USER = "insert into users (`name`, `age`, `login`, `password`, `role`) values (?, ?, ?, ?, ?)";
 	
 	@Override
 	public UserCatalog readUserCatalog() {
@@ -57,6 +59,49 @@ public class SQLBasicDaoImpl implements BasicDao {
 		catalog.setUsers(users);
 		
 		return catalog;
+	}
+
+	@Override
+	public void addUser(User user) {
+		PreparedStatement ps = null;
+		Connection cn = null;
+
+		try {
+			Class.forName(DB_DRIVER);
+
+			cn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+
+			try {
+				ps = cn.prepareStatement(SQL_ADD_USER);
+
+				ps.setString( 1, user.getName() );
+				ps.setInt( 2, user.getAge() );
+				ps.setString( 3, user.getLogin() );
+				ps.setString( 4, user.getPassword() );
+				ps.setInt( 5, user.getRole() );
+				// ps.executeQuery();
+				ps.executeUpdate();
+			} catch (SQLException e) {
+				/*throw new DaoException("Problem with adding new book", e);*/
+				e.printStackTrace();
+			} finally {
+				ps.close();
+			}
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			//throw new DaoException("Problem with database connection", e);
+			e.printStackTrace();
+		} finally {
+			try {
+				cn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 	}
 	
 }

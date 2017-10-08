@@ -1,4 +1,11 @@
+document-type//WebContent/WEB-INF/jsp/about.jsp=
+document-type//WebContent/WEB-INF/jsp/admin.jsp=
+document-type//WebContent/WEB-INF/jsp/error.jsp=
+document-type//WebContent/WEB-INF/jsp/guest.jsp=
 document-type//WebContent/WEB-INF/jsp/login.jsp=
+document-type//WebContent/WEB-INF/jsp/registration.jsp=
+document-type//WebContent/WEB-INF/jsp/unregistered.jsp=
+document-type//WebContent/WEB-INF/jsp/user.jsp=
 document-type//WebContent/index.jsp=
 document-type/<project>=
 eclipse.preferences.version=1

@@ -60,9 +60,10 @@ public class BasicActionAuthorization implements BasicAction {
 				case 3:  //guest
 					url = "/WEB-INF/jsp/guest.jsp";
 					break;
-				default:
-					url = "/WEB-INF/jsp/unregistered.jsp";
 				}
+			}
+			else {
+				url = "/WEB-INF/jsp/unregistered.jsp";
 			}
 		}
 		return url;

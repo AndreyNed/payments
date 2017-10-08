@@ -32,4 +32,10 @@ public class BasicDaoImpl implements BasicDao {
 		return userCatalog;
 	}
 
+	@Override
+	public void addUser(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -1,5 +1,5 @@
 package by.htp.payments.web.command;
 
 public enum CommandType {
-	LOGIN, AUTHORIZE, SYSTEM, HOME, ABOUT
+	LOGIN, AUTHORIZE, SYSTEM, HOME, ABOUT, REGISTRATION, REG_VALIDATION
 }
