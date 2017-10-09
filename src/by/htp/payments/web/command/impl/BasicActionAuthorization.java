@@ -15,6 +15,10 @@ import by.htp.payments.service.impl.BasicServiceImpl;
 import by.htp.payments.web.command.BasicAction;
 
 public class BasicActionAuthorization implements BasicAction {
+	
+	private static final String ADMIN = "ADMIN";
+	private static final String USER = "USER";
+	private static final String GUEST = "GUEST";
 
 	@Override
 	public String executeAction(HttpServletRequest request, HttpServletResponse response)
@@ -50,20 +54,23 @@ public class BasicActionAuthorization implements BasicAction {
 			if ( user.getLogin().equalsIgnoreCase( login ) &&
 					user.getPassword().equals( password ) ) {
 				System.out.println("User: " + user);
-				switch ( user.getRole() ) {
-				case 1: //admin
+				String role = user.getRole();
+				System.out.println( "Role: " + role );
+				if ( ADMIN.equalsIgnoreCase( role ) ) {
 					url = "/WEB-INF/jsp/admin.jsp";
-					break;
-				case 2: //user
+				}
+				else if ( USER.equalsIgnoreCase( role ) ) {
 					url = "/WEB-INF/jsp/user.jsp";
-					break;
-				case 3:  //guest
+				}
+				else if ( GUEST.equalsIgnoreCase( role ) ) {
 					url = "/WEB-INF/jsp/guest.jsp";
-					break;
+				}
+				else {
+					url = "/WEB-INF/jsp/unregistered.jsp";
 				}
 			}
 			else {
-				url = "/WEB-INF/jsp/unregistered.jsp";
+				
 			}
 		}
 		return url;

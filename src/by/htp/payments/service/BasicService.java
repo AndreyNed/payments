@@ -6,6 +6,9 @@ import by.htp.payments.domain.vo.UserCatalog;
 public interface BasicService {
 
 	UserCatalog getUserCatalog();
+	
 	void registerNewUser( User user );
+	
+	String getRoleName( int roleID );
 	
 }

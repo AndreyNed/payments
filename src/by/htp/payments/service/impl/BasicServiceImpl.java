@@ -23,5 +23,13 @@ public class BasicServiceImpl implements BasicService {
 		BasicDao dao = new SQLBasicDaoImpl();
 		dao.addUser(user);
 	}
+
+	@Override
+	public String getRoleName(int roleID) {
+		String roleName = null;
+		BasicDao dao = new SQLBasicDaoImpl();
+		roleName = dao.readRoleName( roleID );
+		return roleName;
+	}
 	
 }

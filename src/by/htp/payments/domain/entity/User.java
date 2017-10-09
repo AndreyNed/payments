@@ -11,13 +11,13 @@ public class User implements Serializable{
 	private int age;
 	private String login;
 	private String password;
-	private int role;
+	private String role;
 	
 	public User() {
 		super();
 	}
 
-	public User(String name, int age, String login, String password, int role) {
+	public User(String name, int age, String login, String password, String role) {
 		super();
 		this.name = name;
 		this.age = age;
@@ -66,11 +66,11 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
-	public int getRole() {
+	public String getRole() {
 		return role;
 	}
 
-	public void setRole(int role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 
@@ -78,16 +78,17 @@ public class User implements Serializable{
 		return serialVersionUID;
 	}
 	
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + age;
-		result = prime * result + id;
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + role;
+		result = prime * result + ((role == null) ? 0 : role.hashCode());
 		return result;
 	}
 
@@ -101,8 +102,6 @@ public class User implements Serializable{
 			return false;
 		User other = (User) obj;
 		if (age != other.age)
-			return false;
-		if (id != other.id)
 			return false;
 		if (login == null) {
 			if (other.login != null)
@@ -119,7 +118,10 @@ public class User implements Serializable{
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
-		if (role != other.role)
+		if (role == null) {
+			if (other.role != null)
+				return false;
+		} else if (!role.equals(other.role))
 			return false;
 		return true;
 	}
